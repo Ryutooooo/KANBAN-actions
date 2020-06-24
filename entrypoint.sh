@@ -103,7 +103,7 @@ do
 
 
 
-  if [ "`echo $MEMBERS | grep $(echo $ASSIGNEES)`" ]; then
+  if [ "`echo $MEMBERS | grep $ASSIGNEES`" ]; then
     add_section "The person assigned this time was included in the target team"
 
     PROJECT_URL=$(echo $CURRENT_PROJECT | jq .url)
