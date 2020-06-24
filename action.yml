@@ -1,0 +1,26 @@
+# action.yml
+name: 'KANBAN'
+description: 'Assign new Issue or Pull Request to a specific project dashboard column by some team'
+author: Ryutooooo
+inputs:
+  org_name:
+    description: 'The url of the project to be assigned to.'
+    required: true
+  org_token:
+    description: 'The column name of the project, defaults to "To do" for issues and "In progress" for pull requests.'
+    required: true
+  actor:
+    description: 'The actor of the executing account.'
+    required: true
+  assignees:
+    description: 'Assignees of the event'
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'docker://srggrs/assign-one-project-github-action:1.2.0'
+  args:
+    - ${{ inputs.org_name }}
+    - ${{ inputs.org_token }}
+    - ${{ inputs.actor }}
+    - ${{ inputs.assignees }}
