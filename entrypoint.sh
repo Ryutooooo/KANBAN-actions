@@ -3,7 +3,7 @@
 TOKEN="$INPUT_ORG_TOKEN"
 ORG_NAME="$INPUT_ORG_NAME"
 ACTOR="$INPUT_ACTOR"
-ASSIGNEES="$INPUT_ASSIGNEES"
+ASSIGNEES=$(echo $INPUT_ASSIGNEES | jq -r .[])
 
 function add_section() {
   let section_count++
